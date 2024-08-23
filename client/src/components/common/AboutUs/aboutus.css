@@ -1,0 +1,72 @@
+.about-us {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.about-us-section,
+.mission-section,
+.what-we-offer-section,
+.join-us-section,
+.contact-us-section {
+    margin-bottom: 20px;
+}
+
+h2,
+h3 {
+    color: #333;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+/* This file can be used for additional custom styles if needed */
+
+.about-us {
+    @apply p-6 bg-gray-100;
+}
+
+.about-us-section,
+.mission-section,
+.what-we-offer-section,
+.join-us-section,
+.contact-us-section {
+    @apply mb-8;
+}
+
+h2, h3 {
+    @apply text-2xl font-semibold mb-4;
+}
+
+p {
+    @apply mb-4 text-gray-700;
+}
+
+ul {
+    @apply list-disc pl-5 mb-4;
+}
+
+li {
+    @apply mb-2;
+}
+
+a {
+    @apply text-blue-500 hover:underline;
+}
+
+.contact-us-section ul {
+    @apply space-y-2;
+}

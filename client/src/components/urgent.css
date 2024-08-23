@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Animations */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.7s ease-out;
+}
+
+.animate-slide-out {
+  animation: slideOut 0.7s ease-in;
+}
+
+/* Custom Styles */
+.urgent-news-heading {
+  background: linear-gradient(to bottom, #f56565, #e53e3e);
+  color: white;
+  font-size: 1.125rem;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 0.5rem 0 0 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.urgent-news-content {
+  padding-left: 1rem;
+}

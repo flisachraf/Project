@@ -1,0 +1,60 @@
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    env_file:
+      - ./.env
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASS}
+    volumes:
+      - db-data:/data/db
+    ports:
+      - ${MONGO_LOCAL_PORT}:${MONGO_DOCKER_PORT}
+  mongo-exp:
+    image: mongo-express
+    container_name: mongo-exp
+    env_file:
+      - ./.env
+    restart: always
+    ports:
+      - ${MONGO_EXPRESS_LOCAL_PORT}:${MONGO_EXPRESS_DOCKER_PORT}
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_USER}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_PASS}
+      ME_CONFIG_MONGODB_URL: "mongodb://${MONGO_USER}:${MONGO_PASS}@${MONGO_URL}:${MONGO_DOCKER_PORT}/"
+      ME_CONFIG_BASICAUTH: false
+  backend:
+    image: node:18-alpine3.16
+    restart: always
+    depends_on:
+      - mongodb
+    env_file:
+      - ./.env
+    container_name: backend
+    working_dir: /backend
+    command: sh -c "(apk --no-cache --update add bash=5.1.16-r2 tini=0.19.0-r0 || true) && npm install && /sbin/tini -- node server.js"
+    ports:
+      - "${API_LOCAL_PORT}:${API_DOCKER_PORT}"
+    volumes:
+      - "./server:/backend"
+  frontend:
+    image: node:18-alpine3.16
+    restart: unless-stopped
+    depends_on:
+      - backend
+    command: sh -c "(apk --no-cache --update add bash=5.1.16-r2 tini=0.19.0-r0 || true) && (rm -rf ./build || true) && npm install && npm run build --omit=dev && /sbin/tini -- npm run start:webprod"
+    env_file:
+      - ./.env
+    container_name: frontend
+    working_dir: /client
+    stdin_open: true
+    tty: true
+    ports:
+      - "${WEB_LOCAL_PORT}:${WEB_DOCKER_PORT}"
+    volumes:
+      - "./client/:/client"
+volumes:
+  db-data:
+    driver: local
