@@ -13,7 +13,7 @@ const SubscribersTable = () => {
   useEffect(() => {
     const fetchSubscribers = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/subscriber/allSubscribers',{headers: {
+        const response = await axios.get('http://srv586727.hstgr.cloud:8000/api/subscriber/allSubscribers',{headers: {
             'Authorization': token}}); // Replace with your API endpoint
         setSubscribers(response.data);
       } catch (error) {
@@ -26,7 +26,7 @@ const SubscribersTable = () => {
 
   const handleRemove = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/api/subscriber/deleteSubscriber/${id}`,{headers: {
+      await axios.delete(`http://srv586727.hstgr.cloud:8000/api/subscriber/deleteSubscriber/${id}`,{headers: {
         'Authorization': token}}); // Replace with your API endpoint
       setSubscribers(subscribers.filter(subscriber => subscriber._id !== id));
     } catch (error) {

@@ -32,7 +32,7 @@ const AuthFormAdmin = () => {
     if (isRegister) {
       try {
         const response = await axios.post(
-          "http://localhost:8000/api/admin/register",
+          "http://srv586727.hstgr.cloud:8000/api/admin/register",
           formData,
           { withCredentials: true }
         );
@@ -54,7 +54,7 @@ const AuthFormAdmin = () => {
       }
     } else {
       try {
-        const response = await axios.post('http://localhost:8000/api/login', formData, { withCredentials: true });
+        const response = await axios.post('http://srv586727.hstgr.cloud:8000/api/login', formData, { withCredentials: true });
         console.log('SERVER RESPONSE:', response.data);
         localStorage.setItem('token', response.data.token);
         window.location.href = '/home';

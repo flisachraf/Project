@@ -19,14 +19,14 @@ const PORT = process.env.API_DOCKER_PORT || 8000;
 app.use((req, res, next) => {
   res.setHeader(
     "Content-Security-Policy",
-    "default-src 'self'; connect-src 'self' http://localhost:8000 http://localhost:4000; script-src 'self';"
+    "default-src 'self'; connect-src 'self' http://srv586727.hstgr.cloud:8000 http://srv586727.hstgr.cloud:4000; script-src 'self';"
   );
   next();
 });
 
 // CORS setup
 app.use(cors({
-  origin: 'http://localhost:4000', // Ensure this matches your frontend's address
+  origin: ['http://srv586727.hstgr.cloud:4000', 'http://tulibnews.com'], // Add your frontend's domain here
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
@@ -105,5 +105,5 @@ app.use('/api/categories', categoryRoute);
 app.use('/api', userRoute);
 // Start server
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on http://srv586727.hstgr.cloud:${PORT}`);
 });

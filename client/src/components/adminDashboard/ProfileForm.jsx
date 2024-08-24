@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function ProfileForm({ user }) {
   const [image, setImage] = useState(null);
-  const [imagePreview, setImagePreview] = useState(user?.image ? `http://localhost:8000/${user.image.replace("\\", "/")}` : '');
+  const [imagePreview, setImagePreview] = useState(user?.image ? `http://srv586727.hstgr.cloud:8000/${user.image.replace("\\", "/")}` : '');
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
   const token = localStorage.getItem("token");
@@ -30,7 +30,7 @@ function ProfileForm({ user }) {
     formData.append('image', image);
 
     try {
-      const response = await axios.put('http://localhost:8000/api/updateProfileImage', formData, {
+      const response = await axios.put('http://srv586727.hstgr.cloud:8000/api/updateProfileImage', formData, {
         headers: {
           'Authorization': token,
           'Content-Type': 'multipart/form-data',
@@ -41,7 +41,7 @@ function ProfileForm({ user }) {
 
       if (response.data && response.data.image) {
         const updatedFilePath = response.data.image.replace(/\\/g, '/'); // Normalize file path
-        setImagePreview(`http://localhost:8000/uploads/${updatedFilePath}`);
+        setImagePreview(`http://srv586727.hstgr.cloud:8000/uploads/${updatedFilePath}`);
         setSuccess('Profile image updated successfully.');
       }
     } catch (error) {
@@ -62,7 +62,7 @@ function ProfileForm({ user }) {
         <label htmlFor="image" className="relative cursor-pointer">
           <div className="rounded-full overflow-hidden border-4 border-white w-40 h-40">
             <img
-              src={imagePreview || 'http://localhost:8000/default-image.png'} // Fallback image
+              src={imagePreview || 'http://srv586727.hstgr.cloud:8000/default-image.png'} // Fallback image
               alt="Profile Preview"
               className="w-full h-full object-cover"
             />

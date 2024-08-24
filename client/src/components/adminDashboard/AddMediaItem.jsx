@@ -23,7 +23,7 @@ const AddMediaItem = ({ user, closeAddMedia }) => {
   // Translate text from Arabic to English
   const translateTextWithLibreTranslate = async (text) => {
     try {
-      const response = await axios.post("http://localhost:8000/api/chat", {
+      const response = await axios.post("http://srv586727.hstgr.cloud:8000/api/chat", {
         messages: text,
       });
       const translatedText = response.data.translateText;
@@ -59,7 +59,7 @@ const AddMediaItem = ({ user, closeAddMedia }) => {
     }
 
     try {
-      await axios.post("http://localhost:8000/api/articles/createInfoVideo", formData, {
+      await axios.post("http://srv586727.hstgr.cloud:8000/api/articles/createInfoVideo", formData, {
         headers: {
           Authorization: token, // Ensure Bearer token prefix
           "Content-Type": "multipart/form-data",

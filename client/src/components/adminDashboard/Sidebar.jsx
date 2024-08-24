@@ -47,7 +47,7 @@ const Sidebar = ({ setContent, content }) => {
   }, [setContent]);
 
   // Handle default image or empty image source
-  const imageSrc = user?.image ? `http://localhost:8000/${user.image.replace("\\", "/")}` : 'http://localhost:8000/default-image.png';
+  const imageSrc = user?.image ? `http://srv586727.hstgr.cloud:8000/${user.image.replace("\\", "/")}` : 'http://srv586727.hstgr.cloud:8000/default-image.png';
 
   return (
     <div className={`bg-[#0e0e0e] min-h-screen ${open ? 'w-52' : 'w-16'} duration-500 text-gray-100 px-4 fixed top-0 h-full z-50`}>

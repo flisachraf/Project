@@ -10,7 +10,7 @@ const UrgentNews = () => {
   const { i18n } = useTranslation();
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/articles/urgent/News")
+    axios.get("http://srv586727.hstgr.cloud:8000/api/articles/urgent/News")
       .then(res => {
         const lastFourItems = res.data.slice(-4).reverse(); // Get the last 4 items
         setNewsList(lastFourItems);

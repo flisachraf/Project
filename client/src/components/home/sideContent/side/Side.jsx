@@ -26,7 +26,7 @@ const Side = () => {
   const subscribe = (e) => {
     e.preventDefault();
     console.log('***********', email);
-    axios.post("http://localhost:8000/api/subscriber", { email })
+    axios.post("http://srv586727.hstgr.cloud:8000/api/subscriber", { email })
       .then(res => {
         console.log(res);
         alert("Subscription sent with success");

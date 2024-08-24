@@ -32,7 +32,7 @@ const ViewNewsId = () => {
     useEffect(() => {
         const fetchArticle = async () => {
             try {
-                const response = await fetch(`http://localhost:8000/api/articles/getNew/${id}`);
+                const response = await fetch(`http://srv586727.hstgr.cloud:8000/api/articles/getNew/${id}`);
                 const article = await response.json();
                 setFields({
                     title: article.title,
@@ -43,7 +43,7 @@ const ViewNewsId = () => {
                     videoUrl: article.videoUrl,
                     category: article.category
                 });
-                setImagePreview(article ? `http://localhost:8000/${article.image.replace('\\', '/')}` : '');
+                setImagePreview(article ? `http://srv586727.hstgr.cloud:8000/${article.image.replace('\\', '/')}` : '');
                 setLoading(false);
                 
                 // Fetch random articles from the same category and week
@@ -52,7 +52,7 @@ const ViewNewsId = () => {
                 const weekEnd = new Date(weekStart);
                 weekEnd.setDate(weekEnd.getDate() + 6); // End of the week
                 
-                const randomResponse = await axios.get('http://localhost:8000/api/articles/random', {
+                const randomResponse = await axios.get('http://srv586727.hstgr.cloud:8000/api/articles/random', {
                     params: {
                         category: article.category,
                         startDate: weekStart.toISOString(),
@@ -125,7 +125,7 @@ const ViewNewsId = () => {
                 {fields.creator.image && (
                     <div className="flex gap-4 items-center mb-6">
                         <img
-                            src={fields.creator.image ? `http://localhost:8000/${fields.creator.image.replace('\\', '/')}` : ''}
+                            src={fields.creator.image ? `http://srv586727.hstgr.cloud:8000/${fields.creator.image.replace('\\', '/')}` : ''}
                             alt="Creator"
                             className="w-10 h-10 rounded-full mr-3"
                         />
@@ -189,7 +189,7 @@ const ViewNewsId = () => {
                     ) : (
                         randomArticles.map((article) => (
                             <div key={article._id} className="bg-white rounded-lg shadow-md p-4">
-                                <img src={`http://localhost:8000/${article.image.replace('\\', '/')}`} alt={article.title[viewLanguage]} className="w-full h-40 object-cover rounded-lg mb-4" />
+                                <img src={`http://srv586727.hstgr.cloud:8000/${article.image.replace('\\', '/')}`} alt={article.title[viewLanguage]} className="w-full h-40 object-cover rounded-lg mb-4" />
                                 <h3 className="text-xl font-semibold mb-2">{article.title[viewLanguage]}</h3>
                                 <p className="text-sm text-gray-600">{new Date(article.createdAt).toLocaleDateString()}</p>
                                 <Link to={`/singlepage/${article._id}`} className="text-blue-500 hover:underline mt-2 block">{t('Read more')}</Link>

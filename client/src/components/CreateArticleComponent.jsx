@@ -27,7 +27,7 @@ const CreateArticleComponent = ({ user }) => {
 
   const translateTextWithLibreTranslate = async (text, path, language) => {
     try {
-      const response = await axios.post("http://localhost:8000/api/chat", {
+      const response = await axios.post("http://srv586727.hstgr.cloud:8000/api/chat", {
         messages: text,
         language,
       });
@@ -79,7 +79,7 @@ const CreateArticleComponent = ({ user }) => {
     }
 
     try {
-      await axios.post("http://localhost:8000/api/articles/create", formData, {
+      await axios.post("http://srv586727.hstgr.cloud:8000/api/articles/create", formData, {
         headers: {
           Authorization: token,
           "Content-Type": "multipart/form-data",

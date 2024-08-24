@@ -14,7 +14,7 @@ const CategoryCards = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/articles/news/category', {
+        const response = await axios.get('http://srv586727.hstgr.cloud:8000/api/articles/news/category', {
           params: {
             category,
             page: currentPage,
@@ -40,7 +40,7 @@ const CategoryCards = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8000/api/sponsors/allActiveSponsors')
+      .get('http://srv586727.hstgr.cloud:8000/api/sponsors/allActiveSponsors')
       .then((res) => {
         setSponsors(res.data);
       })
@@ -75,7 +75,7 @@ const CategoryCards = () => {
               {sponsors.map((src, index) => (
                 <div key={index} className="w-full flex-shrink-0">
                   <img
-                    src={`http://localhost:8000/${src.replace("\\", "/")}`}
+                    src={`http://srv586727.hstgr.cloud:8000/${src.replace("\\", "/")}`}
                     alt={`Slide ${index}`}
                     className="w-full  object-cover rounded-lg shadow-md"
                   />
@@ -102,7 +102,7 @@ const CategoryCards = () => {
                 </div>
               ) : (
                 <img
-                  src={article.image ? `http://localhost:8000/${article.image.replace("\\", "/")}` : ""}
+                  src={article.image ? `http://srv586727.hstgr.cloud:8000/${article.image.replace("\\", "/")}` : ""}
                   alt={i18n.language === 'ar' ? article.title.ar : article.title.en}
                   className="w-full h-48 object-cover mb-4"
                 />

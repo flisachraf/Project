@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Card = ({ item }) => {
   // Construct the full URL for the image
-  const imageUrl = item.image ? `http://localhost:8000/${item.image.replace('\\', '/')}` : '';
+  const imageUrl = item.image ? `http://srv586727.hstgr.cloud:8000/${item.image.replace('\\', '/')}` : '';
   const { i18n } = useTranslation();
   const title = i18n.language === 'ar' ? item.title.ar : item.title.en;
 

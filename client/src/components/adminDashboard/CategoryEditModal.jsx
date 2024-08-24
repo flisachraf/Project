@@ -23,9 +23,9 @@ const CategoryEditModal = ({ category, onClose, onSave }) => {
     e.preventDefault();
     try {
       if (category?._id) {
-        await axios.put(`http://localhost:8000/api/categories/${category._id}`, formData);
+        await axios.put(`http://srv586727.hstgr.cloud:8000/api/categories/${category._id}`, formData);
       } else {
-        await axios.post('http://localhost:8000/api/categories/addCategory', formData,{
+        await axios.post('http://srv586727.hstgr.cloud:8000/api/categories/addCategory', formData,{
           headers: { Authorization: token }
         });
       }

@@ -28,7 +28,7 @@ const ArticleList = ({ articles, view, onPaginationChange, currentPage, totalPag
 
   // Confirm an article
   const confirm = (id) => {
-    axios.put(`http://localhost:8000/api/articles/confirmNews/${id}`, {}, {
+    axios.put(`http://srv586727.hstgr.cloud:8000/api/articles/confirmNews/${id}`, {}, {
       headers: { Authorization: token }
     })
       .then(() => fetchArticles())
@@ -37,7 +37,7 @@ const ArticleList = ({ articles, view, onPaginationChange, currentPage, totalPag
 
   // Remove an article
   const remove = (id) => {
-    axios.delete(`http://localhost:8000/api/articles/delete/${id}`, {
+    axios.delete(`http://srv586727.hstgr.cloud:8000/api/articles/delete/${id}`, {
       headers: { Authorization: token }
     })
       .then(() => fetchArticles())

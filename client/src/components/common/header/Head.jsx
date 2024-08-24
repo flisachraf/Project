@@ -10,7 +10,7 @@ const Head = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/sponsors/allActiveSponsors")
+    axios.get("http://srv586727.hstgr.cloud:8000/api/sponsors/allActiveSponsors")
       .then(res => {
         console.log("*******", res.data);
         setSponsors(res.data);
@@ -49,7 +49,7 @@ const Head = () => {
                 {sponsors.map((src, index) => (
                   <div key={index} className="w-full flex-shrink-0">
                     <img
-                      src={`http://localhost:8000/${src.replace("\\", "/")}`}
+                      src={`http://srv586727.hstgr.cloud:8000/${src.replace("\\", "/")}`}
                       alt={`Slide ${index}`}
                       className=""
                     />

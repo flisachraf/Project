@@ -16,8 +16,8 @@ const ResponsiveMenu = ({ showMenu, setShowMenu }) => {
   const menuRef = useRef(null);
 
   const imageSrc = user?.image
-    ? `http://localhost:8000/${user.image.replace("\\", "/")}`
-    : 'http://localhost:8000/default-image.png';
+    ? `http://srv586727.hstgr.cloud:8000/${user.image.replace("\\", "/")}`
+    : 'http://srv586727.hstgr.cloud:8000/default-image.png';
 
   // Handle click outside to close the menu
   const handleClickOutside = (event) => {

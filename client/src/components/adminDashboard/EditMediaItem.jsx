@@ -31,7 +31,7 @@ const EditMediaItem = ({ mediaItem, user, closeEditMedia }) => {
 
   const translateTextWithLibreTranslate = async (text) => {
     try {
-      const response = await axios.post("http://localhost:8000/api/chat", { messages: text });
+      const response = await axios.post("http://srv586727.hstgr.cloud:8000/api/chat", { messages: text });
       setTitleEn(response.data.translateText);
     } catch (error) {
       console.error("Error translating text:", error.response ? error.response.data : error.message);
@@ -59,7 +59,7 @@ const EditMediaItem = ({ mediaItem, user, closeEditMedia }) => {
     }
 
     try {
-      await axios.put(`http://localhost:8000/api/articles/editInfoVideo/${mediaItem._id}`, formData, {
+      await axios.put(`http://srv586727.hstgr.cloud:8000/api/articles/editInfoVideo/${mediaItem._id}`, formData, {
         headers: {
           Authorization: token,
           "Content-Type": "multipart/form-data",

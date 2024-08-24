@@ -25,7 +25,7 @@ const SponsorsTable = () => {
 
   const fetchSponsors = async () => {
     try {
-      const res = await axios.get('http://localhost:8000/api/sponsors/allSponsors', {
+      const res = await axios.get('http://srv586727.hstgr.cloud:8000/api/sponsors/allSponsors', {
         headers: { Authorization: token }
       });
       setSponsors(res.data);
@@ -58,7 +58,7 @@ const SponsorsTable = () => {
 
   const handleActivate = async (sponsorId) => {
     try {
-      await axios.put(`http://localhost:8000/api/sponsors/activer/${sponsorId}`, {}, {
+      await axios.put(`http://srv586727.hstgr.cloud:8000/api/sponsors/activer/${sponsorId}`, {}, {
         headers: { Authorization: token }
       });
       fetchSponsors(); // Refresh sponsors list
@@ -69,7 +69,7 @@ const SponsorsTable = () => {
 
   const handleDeactivate = async (sponsorId) => {
     try {
-      await axios.put(`http://localhost:8000/api/sponsors/desactiver/${sponsorId}`, {}, {
+      await axios.put(`http://srv586727.hstgr.cloud:8000/api/sponsors/desactiver/${sponsorId}`, {}, {
         headers: { Authorization: token }
       });
       fetchSponsors(); // Refresh sponsors list
@@ -80,7 +80,7 @@ const SponsorsTable = () => {
 
   const handleRemove = async (sponsorId) => {
     try {
-      await axios.delete(`http://localhost:8000/api/sponsors/${sponsorId}`, {
+      await axios.delete(`http://srv586727.hstgr.cloud:8000/api/sponsors/${sponsorId}`, {
         headers: { Authorization: token }
       });
       fetchSponsors(); // Refresh sponsors list
@@ -92,7 +92,7 @@ const SponsorsTable = () => {
   const handleAddSponsor = async (e) => {
     e.preventDefault(); // Prevent default form submission
     try {
-      const res = await axios.post('http://localhost:8000/api/sponsors/register', sponsor, {
+      const res = await axios.post('http://srv586727.hstgr.cloud:8000/api/sponsors/register', sponsor, {
         headers: { Authorization: token }
       });
       console.log(res);

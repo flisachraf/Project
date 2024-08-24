@@ -17,7 +17,7 @@ function ArticleForm() {
   const translateTitle =  (message) => {
     console.log(message)
   
-      axios.post('http://localhost:8000/api/chat', {
+      axios.post('http://srv586727.hstgr.cloud:8000/api/chat', {
         messages: message,
       })
       .then (res=>{console.log(res.data.translateText)
@@ -32,7 +32,7 @@ function ArticleForm() {
       console.log(content)
       const plainTextContent = htmlToText(content, { ignoreImage: true, ignoreHref: true });
       console.log(plainTextContent)
-      axios.post('http://localhost:8000/api/chat', { messages: content })
+      axios.post('http://srv586727.hstgr.cloud:8000/api/chat', { messages: content })
         .then(response=>{
           console.log(response.data.translateText)
           setContentEnglish(response.data.translateText)
@@ -62,7 +62,7 @@ function ArticleForm() {
     console.log("*********",newArticle)
 
     try {
-      await axios.post('http://localhost:5000/api/articles', newArticle);
+      await axios.post('http://srv586727.hstgr.cloud:5000/api/articles', newArticle);
       setMessage('Article saved successfully!');
       setError('');
       // Reset form fields

@@ -16,7 +16,7 @@ const Popular = () => {
       try {
         const responses = await Promise.all(
           categories.map(category => 
-            axios.get('http://localhost:8000/api/articles/latest', {
+            axios.get('http://srv586727.hstgr.cloud:8000/api/articles/latest', {
               params: { category: category }
             }).then(res => res.data.articles)
           )
@@ -58,7 +58,7 @@ const Popular = () => {
                   className="flex-none w-full md:w-72 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow transform hover:scale-105"
                 >
                   <img 
-                    src={`http://localhost:8000/${article.image.replace("\\", "/")}`} 
+                    src={`http://srv586727.hstgr.cloud:8000/${article.image.replace("\\", "/")}`} 
                     alt={i18n.language === "ar" ? article.title.ar : article.title.en} 
                     className="w-full h-40 object-cover rounded-t-lg " 
                   />

@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      axios.get('http://localhost:8000/api', {
+      axios.get('http://srv586727.hstgr.cloud:8000/api', {
         headers: { Authorization: token }
       })
       .then(response => {

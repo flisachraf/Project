@@ -34,7 +34,7 @@ const CreateArticleComponentt = ({ user }) => {
   const handleFieldTranslate = async (path, language) => {
     try {
       const response = await axios.post(
-        'http://localhost:8000/api/chat',
+        'http://srv586727.hstgr.cloud:8000/api/chat',
         {
           messages: fields[path][language],
           language
@@ -72,7 +72,7 @@ const CreateArticleComponentt = ({ user }) => {
     }
 
     try {
-      await axios.post('http://localhost:8000/api/articles', formData, {
+      await axios.post('http://srv586727.hstgr.cloud:8000/api/articles', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       setFields({

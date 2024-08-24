@@ -7,7 +7,7 @@ const SponsorDetail = ({ user }) => {
   const [sponsor, setSponsor] = useState({});
   const token = localStorage.getItem('token');
 
-  const fetchSponsor =()=>{axios.get(`http://localhost:8000/api/sponsors/onesponsor/${user.id}`, {
+  const fetchSponsor =()=>{axios.get(`http://srv586727.hstgr.cloud:8000/api/sponsors/onesponsor/${user.id}`, {
     headers: { Authorization: token }
   })
   .then(res => {

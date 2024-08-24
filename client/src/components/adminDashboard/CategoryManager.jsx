@@ -22,7 +22,7 @@ const CategoryManager = () => {
 
   const fetchCategories = async () => {
     try {
-      const res = await axios.get('http://localhost:8000/api/categories/all');
+      const res = await axios.get('http://srv586727.hstgr.cloud:8000/api/categories/all');
       
       setCategories(res.data);
     } catch (err) {
@@ -50,7 +50,7 @@ const CategoryManager = () => {
 
   const handleRemove = async (categoryId) => {
     try {
-      await axios.delete(`http://localhost:8000/api/categories/deletCategory/${categoryId}`, {
+      await axios.delete(`http://srv586727.hstgr.cloud:8000/api/categories/deletCategory/${categoryId}`, {
         headers: { Authorization: token }
       });
       fetchCategories(); // Refresh categories list

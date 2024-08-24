@@ -33,7 +33,7 @@ const Register = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/send-verification-code",
+        "http://srv586727.hstgr.cloud:8000/send-verification-code",
         {
           nameOrWord,
         }
@@ -70,7 +70,7 @@ const Register = () => {
     // }
 
     try {
-      const response = await axios.post("http://localhost:8000/api/register", {
+      const response = await axios.post("http://srv586727.hstgr.cloud:8000/api/register", {
         username,
         email,
         password,
@@ -95,7 +95,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8000/api/login", {
+      const response = await axios.post("http://srv586727.hstgr.cloud:8000/api/login", {
         email: loginEmail,
         password: loginPassword,
       });

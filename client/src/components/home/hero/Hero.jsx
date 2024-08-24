@@ -8,7 +8,7 @@ const Hero = () => {
 
   const [items, setIems] = useState(hero)
   useEffect(()=>{
-    axios.get("http://localhost:8000/api/articles/confirmed/News")
+    axios.get("http://srv586727.hstgr.cloud:8000/api/articles/confirmed/News")
     .then(res=>{
       console.log(res.data)
       // const lastFourItems = res.data.slice(-4).reverse(); // Get the last 4 items

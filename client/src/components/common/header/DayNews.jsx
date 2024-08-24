@@ -8,7 +8,7 @@ const DayNews = () => {
 
   const [items, setIems] = useState([])
   useEffect(() => {
-    axios.get("http://localhost:8000/api/articles/Day/News")
+    axios.get("http://srv586727.hstgr.cloud:8000/api/articles/Day/News")
       .then(res => {
         console.log(res.data)
         const lastFourItems = res.data// Get the last 4 items

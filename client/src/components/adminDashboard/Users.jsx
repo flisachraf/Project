@@ -9,7 +9,7 @@ const Users = ({ role }) => {
     
     useEffect(() => {
         
-        axios.get('http://localhost:8000/api/all', {
+        axios.get('http://srv586727.hstgr.cloud:8000/api/all', {
             headers: { Authorization: token }
         })
         .then((res) => {
@@ -34,7 +34,7 @@ const Users = ({ role }) => {
     };
 
     const handleRemove = (id) => {
-        axios.delete(`http://localhost:8000/api/${id}`, {
+        axios.delete(`http://srv586727.hstgr.cloud:8000/api/${id}`, {
             headers: { Authorization: token }
         })
         .then(() => {
@@ -47,7 +47,7 @@ const Users = ({ role }) => {
     };
 
     const handleRoleChange = (id, newRole) => {
-        axios.patch(`http://localhost:8000/api/${id}`, { role: newRole }, {
+        axios.patch(`http://srv586727.hstgr.cloud:8000/api/${id}`, { role: newRole }, {
             headers: { Authorization: token }
         })
         .then(() => {

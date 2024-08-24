@@ -44,7 +44,7 @@ const EditArticle = ({ user, article, closeEditModal }) => {
   const handleFieldTranslate = async (textPath, language) => {
     try {
       const field = textPath.split('.').reduce((acc, part) => acc[part], fields);
-      const response = await axios.post('http://localhost:8000/api/chat', {
+      const response = await axios.post('http://srv586727.hstgr.cloud:8000/api/chat', {
         messages: field[language],
         language
       });
@@ -89,7 +89,7 @@ const EditArticle = ({ user, article, closeEditModal }) => {
     }
     console.log(fields.subtitles)
     try {
-      await axios.put(`http://localhost:8000/api/articles/edit/${article._id}`, formData, {
+      await axios.put(`http://srv586727.hstgr.cloud:8000/api/articles/edit/${article._id}`, formData, {
         headers: {
           'Authorization': token,
           'Content-Type': 'multipart/form-data'

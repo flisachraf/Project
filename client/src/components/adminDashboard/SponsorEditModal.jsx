@@ -30,7 +30,7 @@ const SponsorEditModal = ({ sponsor, onClose }) => {
     }
 
     try {
-      await axios.put(`http://localhost:8000/api/sponsors/editSPonsor/${sponsor._id}`, data, {
+      await axios.put(`http://srv586727.hstgr.cloud:8000/api/sponsors/editSPonsor/${sponsor._id}`, data, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: localStorage.getItem('token')

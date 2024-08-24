@@ -15,7 +15,7 @@ const ArticleDashboard = () => {
   const [articlesPerPage] = useState(4);
 
   const fetch = () => {
-    axios.get("http://localhost:8000/api/articles/allNews")
+    axios.get("http://srv586727.hstgr.cloud:8000/api/articles/allNews")
       .then(res => {
         const articleList = res.data;
         setArticles(articleList);

@@ -16,7 +16,7 @@ const Login = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
     try {
-        const response = await axios.post("http://localhost:8000/api/sponsors/login", {
+        const response = await axios.post("http://srv586727.hstgr.cloud:8000/api/sponsors/login", {
           email: email,
           password: password,
         });

@@ -34,7 +34,7 @@ const MyNews = ({ user }) => {
     }
 
     try {
-      const response = await axios.get(`http://localhost:8000/api/articles/myNews/${user._id}`, {
+      const response = await axios.get(`http://srv586727.hstgr.cloud:8000/api/articles/myNews/${user._id}`, {
         headers: { Authorization: token }
       });
       const myNews = response.data;
@@ -62,7 +62,7 @@ const MyNews = ({ user }) => {
 
   const handleRemoveNews = async (newsId) => {
     try {
-      await axios.delete(`http://localhost:8000/api/articles/${newsId}`, { headers: { Authorization: token } });
+      await axios.delete(`http://srv586727.hstgr.cloud:8000/api/articles/${newsId}`, { headers: { Authorization: token } });
       fetchMyNews();
     } catch (error) {
       console.error('Error deleting news:', error);

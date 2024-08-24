@@ -14,7 +14,7 @@ const Header = () => {
   const token = localStorage.getItem('token');
   const { i18n } = useTranslation();
   const { user } = useAuth();
-  const imageSrc = user?.image ? `http://localhost:8000/${user.image.replace("\\", "/")}` : 'http://localhost:8000/default-image.png';
+  const imageSrc = user?.image ? `http://srv586727.hstgr.cloud:8000/${user.image.replace("\\", "/")}` : 'http://srv586727.hstgr.cloud:8000/default-image.png';
 
   // Function to handle language switch
   const handleLanguageChange = (lng) => {
