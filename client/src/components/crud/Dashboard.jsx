@@ -6,7 +6,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     axios
-      .get('https://localhost:8000/api/sponsor')
+      .get('https://srv586727.hstgr.cloud::8000/api/sponsor')
       .then((res) => {
         setPosts(res.data);
       })

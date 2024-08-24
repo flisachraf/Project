@@ -19,14 +19,14 @@ const PORT = process.env.API_DOCKER_PORT || 8000;
 app.use((req, res, next) => {
   res.setHeader(
     "Content-Security-Policy",
-    "default-src 'self'; connect-src 'self' http://srv586727.hstgr.cloud:8000 http://srv586727.hstgr.cloud:4000; script-src 'self';"
+    "default-src 'self'; connect-src 'self' http://srv586727.hstgr.cloud:8000/ http://srv586727.hstgr.cloud:4000/ http://srv586727.hstgr.cloud/ http://srv586727.hstgr.cloud/ https://srv586727.hstgr.cloud/ http://82.112.242.184/ http://82.112.242.184/ https://82.112.242.184/ http://82.112.242.184:8000/ http://82.112.242.184:4000/ http://tulibnews.com/ https://tulibnews.com/ http://www.tulibnews.com/ https://www.tulibnews.com/; script-src 'self';"
   );
   next();
 });
 
 // CORS setup
 app.use(cors({
-  origin: ['http://srv586727.hstgr.cloud:4000', 'http://tulibnews.com'], // Add your frontend's domain here
+  origin: ['http://srv586727.hstgr.cloud:8000/', 'http://srv586727.hstgr.cloud:4000/', 'http://srv586727.hstgr.cloud/', 'http://srv586727.hstgr.cloud/', 'https://srv586727.hstgr.cloud/', 'http://82.112.242.184/', 'http://82.112.242.184/', 'https://82.112.242.184/', 'http://82.112.242.184:4000/', 'http://82.112.242.184:8000/', 'http://tulibnews.com/', 'https://tulibnews.com/', 'http://www.tulibnews.com/', 'https://www.tulibnews.com/'], // Add your frontend's domain here
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
